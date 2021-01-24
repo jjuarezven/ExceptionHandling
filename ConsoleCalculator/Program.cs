@@ -20,10 +20,23 @@ namespace ConsoleCalculator
                 int result = calculator.Calculate(number1, number2, operation);
                 DisplayResult(result);
             }
+            catch (ArgumentNullException ex)
+            {
+                WriteLine($"\n Operation was not provided: {ex}");
+            }
+            catch (ArgumentOutOfRangeException ex)
+            {
+                WriteLine($"\n Operation is not supported: {ex}");
+            }
             catch (Exception ex)
             {
                 WriteLine($"\n Something went wrong: {ex}");
             }
+            finally
+            {
+                WriteLine("... finally ...");
+            }
+
             WriteLine("\n Press enter to exit");
             ReadLine();
         }
