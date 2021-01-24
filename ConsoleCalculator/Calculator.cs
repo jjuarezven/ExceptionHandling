@@ -10,6 +10,8 @@ namespace ConsoleCalculator
             //{
             //    throw new ArgumentNullException(nameof(operation));
             //}
+
+            // throw new ArgumentNullException(nameof(number1));
             string nonNullOperation = operation ?? throw new ArgumentNullException(nameof(operation));
 
             if (nonNullOperation == "/")

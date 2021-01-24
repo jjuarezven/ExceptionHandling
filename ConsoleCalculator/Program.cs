@@ -20,9 +20,15 @@ namespace ConsoleCalculator
                 int result = calculator.Calculate(number1, number2, operation);
                 DisplayResult(result);
             }
-            catch (ArgumentNullException ex)
+            // only executes the catch block when ParamName == "operation", to test it put 
+            // throw new ArgumentNullException(nameof(operation)); on Calculate.Calculator method
+            catch (ArgumentNullException ex) when (ex.ParamName == "operation")
             {
                 WriteLine($"\n Operation was not provided: {ex}");
+            }
+            catch (ArgumentNullException ex)
+            {
+                WriteLine($"\n An argument was null: {ex}");
             }
             catch (ArgumentOutOfRangeException ex)
             {
