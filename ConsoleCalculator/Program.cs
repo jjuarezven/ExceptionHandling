@@ -7,6 +7,9 @@ namespace ConsoleCalculator
     {
         static void Main(string[] args)
         {
+            AppDomain currentAppDomain = AppDomain.CurrentDomain;
+            currentAppDomain.UnhandledException += CurrentAppDomain_UnhandledException;
+
             WriteLine("Enter first number:");
             int number1 = int.Parse(ReadLine());
             WriteLine("Enter second number:");
@@ -45,6 +48,11 @@ namespace ConsoleCalculator
 
             WriteLine("\n Press enter to exit");
             ReadLine();
+        }
+
+        private static void CurrentAppDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
+        {
+            WriteLine($"Sorry there was a problem and we need to close.  Details: {e.ExceptionObject}");
         }
 
         private static void DisplayResult(int result)
