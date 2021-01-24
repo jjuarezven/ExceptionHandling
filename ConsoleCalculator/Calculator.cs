@@ -21,7 +21,11 @@ namespace ConsoleCalculator
                 catch (DivideByZeroException ex)
                 {
                     // log error 
-                    throw;
+                    // throws the error preserving stack trace
+                    //throw;
+
+                    // wraps the exception inside another exception, to give a more general message, for example
+                    throw new ArithmeticException("An error ocurred during calculation", ex);
                 }
             }
             else
