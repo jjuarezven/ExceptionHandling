@@ -20,21 +20,21 @@ namespace ConsoleCalculator
                 {
                     return Divide(number1, number2);
                 }
-                catch (DivideByZeroException ex)
+                catch (ArithmeticException ex)
                 {
                     // log error 
                     // throws the error preserving stack trace
                     //throw;
 
                     // wraps the exception inside another exception, to give a more general message, for example
-                    throw new ArithmeticException("An error ocurred during calculation", ex);
+                    //throw new ArithmeticException("An error ocurred during calculation", ex);
+                    throw new CalculationException("An error ocurred during divison", ex);
                 }
             }
             else
             {
-                throw new ArgumentOutOfRangeException(nameof(operation), "The mathematical operator is not supported");
-                //Console.WriteLine("Uknown operation");
-                //return 0;
+                throw new CalculationOperationNotSupportedException(operation);
+                //throw new ArgumentOutOfRangeException(nameof(operation), "The mathematical operator is not supported");
             }
         }
 
