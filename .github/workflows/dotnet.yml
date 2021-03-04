@@ -23,6 +23,6 @@ jobs:
     - name: Build
       run: dotnet build --no-restore /WarnAsError --configuration Release
     - name: Test
-      env:
-       ImportantNumber: ${{ secrets.IMPORTANTNUMBER }}       
-       run: dotnet test --no-restore --verbosity normal
+      #env:
+      # ImportantNumber: ${{ secrets.IMPORTANTNUMBER }}       
+      run: dotnet test --no-restore --verbosity normal
