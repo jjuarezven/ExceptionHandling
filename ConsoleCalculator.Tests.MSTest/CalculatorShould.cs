@@ -6,12 +6,19 @@ namespace ConsoleCalculator.Tests.MSTest
     public class CalculatorShould
     {
         [TestMethod]
-        public void ThrownWhenUnsupportedOperation()
+        public void Test()
         {
-            var sut = new Calculator();
-            Assert.ThrowsException<CalculationOperationNotSupportedException>(() => sut.Calculate(1, 1, "-"));
-            var ex = Assert.ThrowsException<CalculationOperationNotSupportedException>(() => sut.Calculate(1, 1, "-"));
-            Assert.AreEqual("-", ex.Operation);
+            var test = new MyTest();
+            var result = test.TestMethod();
+            Assert.AreEqual("13728169", result);
         }
+        //[TestMethod]
+        //public void ThrownWhenUnsupportedOperation()
+        //{
+        //    var sut = new Calculator();
+        //    Assert.ThrowsException<CalculationOperationNotSupportedException>(() => sut.Calculate(1, 1, "-"));
+        //    var ex = Assert.ThrowsException<CalculationOperationNotSupportedException>(() => sut.Calculate(1, 1, "-"));
+        //    Assert.AreEqual("-", ex.Operation);
+        //}
     }
 }
